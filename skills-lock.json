@@ -1,0 +1,11 @@
+{
+  "version": 1,
+  "skills": {
+    "prompt-builder": {
+      "source": "adi7820/prompt-builder",
+      "sourceType": "github",
+      "skillPath": "skills/prompt-builder/SKILL.md",
+      "computedHash": "b156d9cd766be9b5a3ecf42190b7050fa4338ccc57342bc8b2fbd04fd96eef85"
+    }
+  }
+}

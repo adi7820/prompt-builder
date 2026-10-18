@@ -10,8 +10,6 @@ Works with **Claude Code, Cursor, GitHub Copilot, Codex** and other AI tools tha
 
 ## What it can do
 
-## What it can do
-
 This skill has 9 small guides inside it. Some are used **every time**. Others are used **only when needed**.
 
 ### ✅ Always used (for every prompt, in this order)

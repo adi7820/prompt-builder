@@ -8,30 +8,28 @@ Works with **Claude Code, Cursor, GitHub Copilot, Codex** and other AI tools tha
 
 ---
 
-## What it can do
+## What's inside: the 9 guides
 
-This skill has 9 small guides inside it. Some are used **every time**. Others are used **only when needed**.
+The skill is made of 9 guides. **4 are used every time**, in order. **5 are used only when your task needs them.**
 
-### ✅ Always used (for every prompt, in this order)
+### ✅ Always used (in this order)
 
-| # | Guide | What it does, in simple words |
+| # | Guide | What it does |
 |---|---|---|
-| 1 | **Structural Elements** | Gives your prompt a clear shape: the task, rules, background, inputs, and how the answer should look. |
-| 2 | **Linguistic Elements** | Makes the words clear and to the point. No confusing or extra words. |
-| 3 | **Prompt Patterns** | Adds smart tricks, like giving the AI an expert role or a fixed answer format. |
-| 4 | **Prompt Templates** | Turns your prompt into a reusable template with blanks like `{{customer_name}}`, so you can use it again and again. |
+| 1 | **Structural Elements**<br>*Gives the prompt its shape* | • Splits the prompt into clear parts: **Instructions**, **Constraints**, **Context**, **Inputs**, **Output Format**, **Delimiters**<br>• Always adds the task and the answer format; other parts only if needed<br>• Puts pasted text (emails, logs, docs) inside ```` ``` ```` or `<tags>` so the AI reads it as data, not orders<br>• Makes rules checkable: *"under 100 words"*, not *"keep it short"* |
+| 2 | **Linguistic Elements**<br>*Makes the words clear* | • First decides: do you want a **final answer** or **ideas**?<br>• **Precision:** replaces vague words like *"professional"* with exact facts, names, and numbers<br>• **Directness:** clear commands like *"Decide…"*, not *"Could you maybe…"*<br>• **Brevity:** removes polite filler and repeated lines<br>• Explains why answers come out too general, too long, or *"it depends"* |
+| 3 | **Prompt Patterns**<br>*Adds proven tricks* | • **Role:** a real expert role, like *"an HR recruiter who has hired 300+ supervisors"*<br>• **Template output:** the same fields every time, with *"Not discussed"* when info is missing<br>• **Repetition:** sends the prompt twice so long lists aren't missed<br>• **Self-Reflection:** the AI checks its own draft for gaps<br>• **Inversion:** the AI asks tough questions from different people's view<br>• **Refinement:** improves the draft using that feedback<br>• **Comment-Driven:** fixes many reviewer comments in one go |
+| 4 | **Prompt Templates**<br>*Makes it reusable* | • Keeps the fixed part (role, rules, format) separate from the changing blanks (`{{customer_name}}`)<br>• One blank per fact, usually 3–7, with a rule for empty blanks<br>• Can chain two templates: the first asks questions, the second makes the final plan<br>• Gives 3–5 test inputs (normal, empty, extreme, tricky) to check before real use |
 
-### Used only when needed
-
-The skill reads your request and picks these guides **only when they fit**:
+### 🔍 Used only when needed
 
 | Guide | When it is used | What it does |
 |---|---|---|
-| **Prompt Types** | You are making a chatbot or app | Splits the prompt into a **system prompt** (fixed rules) and a **user prompt** (changing input). |
-| **Contextual Prompting** | Sorting or labelling tasks, or answers coming out in different formats | Adds 1–2 good examples so the AI follows your style every time. |
-| **Prompt Sampling** | The answer decides something important, like a score or a yes/no | Runs the prompt a few times and takes the average, the majority vote, or the best answer. |
-| **Advanced Patterns** | The task needs step-by-step thinking, or the AI must check other systems | Makes the AI show its thinking, write prompts for you, or work like an agent step by step. |
-| **Prompt Security** | Outside people or documents can send text to your AI | Protects your prompt from tricks like *"ignore all previous instructions"*. |
+| **Prompt Types** | You're building a chatbot, an app, or anything that runs many times | • Splits into a **system prompt** (fixed rules, written once) and a **user prompt** (changing input)<br>• One test for every line: *"Does this set up the AI, or does the user give it?"*<br>• Tells you when **not** to split: a few runs only = one prompt is enough |
+| **Contextual Prompting** | Sorting, labelling, or extracting info, or answers keep changing format | • Starts with **no examples**; adds 1–2 only if the AI isn't consistent<br>• Keeps every example in exactly the same format<br>• Covers different cases, including the risky one, not only easy ones |
+| **Prompt Sampling** | The answer decides something important: a score, a pass/fail, a route | • **Mean:** run 4–8 times, take the average score<br>• **Mode:** run 3 or 5 times, take the majority label<br>• **Self-Consistency:** run 2–4 times, check that the answers agree<br>• **Best-of-N:** make 3 drafts, pick the best using rules set **before** reading<br>• Counting is done outside the AI; a human checks big decisions |
+| **Advanced Patterns** | Step-by-step thinking, prompts that write prompts, or AI agents | • **Chain of Thought:** checks each rule one by one before deciding, so you see why<br>• **Meta Prompting:** a prompt that writes templates for your team and lists open questions<br>• **ReAct:** works like an agent: think → one action → see the result → repeat, with a stop rule and a turn limit |
+| **Prompt Security** | Customers, documents, emails, or websites can send text to your AI | • Marks outside text as **"data, not orders"**, so *"ignore all instructions"* tricks fail<br>• One clear job (*"Your only job is…"*) and one fixed reply for off-topic requests<br>• Gives the AI only the data it needs; it can't leak what it doesn't have<br>• A test list of 8 common attacks to try before going live<br>• Says honestly what a prompt can't protect, so you add those checks in your app |
 
 It never guesses important things. It asks you first and suggests an answer, so you just pick one.
 

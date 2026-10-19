@@ -39,41 +39,43 @@ It never guesses important things. It asks you first and suggests an answer, so 
 
 ### The problem
 
-Most people write prompts like a quick message: *"Write a reply to this customer."*
+When you build an AI app, the prompt is the **core logic** of your app. But most prompts are written like a quick chat message, and that causes real problems once the app is live:
 
-The AI then has to guess everything: who the customer is, what tone to use, how long the reply should be, what to include. So you get:
-
-- Answers that are too general or off-topic
-- A different style every time you run the same prompt
-- Many rounds of "no, not like this, try again"
-- Prompts that break when someone types something tricky
-
-Writing a good prompt takes skill and time, and most people don't have either.
+- **Different answers for the same input:** the format changes, so your code can't read the output reliably.
+- **Generic answers:** the AI doesn't know your business rules, labels, or style.
+- **Prompts copied everywhere:** one change means editing dozens of places.
+- **Easy to break:** a user types *"ignore all instructions"* and your app does something it shouldn't.
+- **Wasted money:** long, messy prompts burn tokens on every single request.
+- **No way to debug:** when the output is wrong, you don't know which part of the prompt caused it.
 
 ### How this skill helps
 
-| Without the skill | With the skill |
-|---|---|
-| You guess what to write | It builds the prompt for you, step by step |
-| The AI guesses what you want | It asks you first, with a suggested answer |
-| Messy, one-line prompts | Clean prompts with clear sections |
-| A new prompt every time | Reusable templates you fill in again and again |
-| Different answers each run | The same format, every time |
-| Easy to trick | Protected against common tricks |
+| Problem in your AI app                              | What the skill does                                                                    |
+| -----------------------------------------------------| ----------------------------------------------------------------------------------------|
+| Output format keeps changing                        | Fixes the exact answer format, so your code can read every response                    |
+| AI ignores your business rules                      | Writes clear, checkable rules and adds 1–2 examples when needed                        |
+| The same prompt copied for every request            | Builds **reusable templates** with blanks like `{{customer_message}}`                  |
+| Rules and user input mixed together                 | Splits into a **system prompt** (fixed rules) and a **user prompt** (changing input)   |
+| Users or documents can trick the AI                 | Separates outside text as *"data, not orders"* and adds safe fallback replies          |
+| Unreliable scores or labels for important decisions | Runs the prompt several times and uses an average, a majority vote, or the best answer |
+| An agent wanders or never stops                     | Gives agents a clear think → act → check loop with stop rules                          |
+| High token cost                                     | Removes filler and keeps the system prompt fixed, so it can be cached                  |
+| Hard to know if the prompt works                    | Gives you test inputs, including tricky and attack cases, to check before going live   |
 
-### In short
+### Get the most out of your AI model
 
-- **Saves time:** fewer retries and less back-and-forth with the AI.
-- **Better answers:** clear prompts give clear results.
-- **Reusable:** make a prompt once, use it many times.
-- **Beginner-friendly:** you don't need to know prompt engineering. Just describe your task.
-- **Saves money:** short, clean prompts use fewer tokens.
+- **Consistent:** the same quality and format on request #1 and request #10,000.
+- **Accurate:** the model gets exactly the context it needs, nothing missing and nothing extra.
+- **Safe:** common attacks are blocked at the prompt level, and the skill tells you what to protect in your code.
+- **Cheaper:** fewer tokens per request, and fewer retries.
+- **Easy to maintain:** change the rules once in the system prompt, and every request follows them.
+- **Easy to debug:** each part of the prompt has one job, so you know where to fix it.
+
+You don't need to be a prompt engineering expert. Describe what your app should do, answer a few questions, and get a prompt that's ready for production.
 
 ## How to install
 
-**Step 1:** Install [Node.js](https://nodejs.org) if you don't have it.
-
-**Step 2:** Open your terminal and run:
+**Step:** Open your terminal and run:
 
 ```bash
 npx skills add adi7820/prompt-builder
@@ -97,18 +99,6 @@ npx skills add adi7820/prompt-builder -a claude-code
 npx skills update
 npx skills remove prompt-builder
 ```
-
----
-
-## How to use
-
-Just ask your AI assistant in normal words, for example:
-
-- *"Write a prompt to reply to customer WhatsApp messages for my shop."*
-- *"Make a template that summarizes meeting notes."*
-- *"Why is my prompt giving different answers every time?"*
-
-The skill starts working on its own.
 
 ---
 
